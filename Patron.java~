@@ -1,0 +1,56 @@
+/**
+ * I have received no outside help on this Programming Assignment #5.
+ * 
+ * @author Megan Jane Thompson
+ * @version 03/28/2019
+ */
+
+/**
+ * 
+ */
+public class Patron {
+  private String name;
+  private String email;
+  private int idNumber;
+  private double balance;
+
+  public Patron (String name, String email, int idNumber, double balance) {
+    this.name = name;
+    this.email = email;
+    this.idNumber = idNumber;
+    this.balance = balance;
+  }
+  
+  
+  public double adjustBalance(double amount) {
+    
+    this.balance = this.balance + amount;
+    return this.balance;
+  }
+  
+  
+  public boolean equals(Object other) {
+    boolean result;
+    result = false;
+    
+    if (other instanceof Patron) {  
+      Patron b = (Patron) other;
+      result = (this.idNumber == b.idNumber);
+    }
+    else if (other instanceof Integer) {
+      Integer id = (Integer) other;
+      result = (this.idNumber == id);
+    }
+                                         
+    return result;
+  }
+  
+  
+  public String toString() {
+    String str;
+    str = "Name: " + this.name + ", Email: " + this.email + 
+          ", ID: " + this.idNumber + ", Balance: " + this.balance;
+    
+    return str;
+  }
+}
